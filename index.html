@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jamali calisthenics acadmy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section id="welcomePage" class="page active">
+  <div class="welcome">
+    <div class="welcome-box">
+      <h1>welcome to jamali calisthenics acadmy</h1>
+      <p>Train skills and be great stronger with jamali.</p>
+      <button onclick="showPage('homePage')">WELCOME</button>
+    </div>
+  </div>
+</section>
+
+<section id="homePage" class="page">
+<nav>
+  <div class="logo">B E S T R O N G</div>
+  <div>
+    <button onclick="showPage('signupPage')">SIGN UP</button>
+    <button class="secondary" onclick="showPage('loginPage')">LOGIN</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>CALISTHENICS SKILL TRAININGS with anas</h1>
+  <p>choose a skill you need training guidance for frist month to begin skill learning.</p>
+  <button onclick="showPage('signupPage')">START TRAINING</button>
+</div>
+
+<footer>
+  Practice with controlled technique and stop if an exercise causes pain or fatigue.
+</footer>
+</section>
+
+<section id="signupPage" class="page">
+<div class="form-container">
+  <h2>CREATE ACCOUNT</h2>
+
+  <form onsubmit="signup(event)">
+    <input type="text" id="signupUsername" placeholder="Username" required>
+    <input type="email" id="signupEmail" placeholder="Email" required>
+    <input type="password" id="signupPassword" placeholder="Password" minlength="8" required>
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" minlength="8" required>
+    <button>CREATE ACCOUNT</button>
+  </form>
+
+  <div class="switch">
+    Already have an account?
+    <span onclick="showPage('loginPage')">Login</span>
+  </div>
+
+  <div class="notice" style="margin-top:16px;font-size:13px">
+    Static demo: account data is stored only in this browser using localStorage.
+    No server/database is used.
+  </div>
+</div>
+</section>
+
+<section id="loginPage" class="page">
+<div class="form-container">
+  <h2>LOGIN</h2>
+
+  <form onsubmit="login(event)">
+    <input type="text" id="loginUsername" placeholder="Username" required>
+    <input type="password" id="loginPassword" placeholder="Password" required>
+    <button>LOGIN</button>
+  </form>
+
+  <div class="switch">
+    Don't have an account?
+    <span onclick="showPage('signupPage')">Sign Up</span>
+  </div>
+</div>
+</section>
+
+<section id="dashboardPage" class="page">
+<nav>
+  <div class="logo">VISHALTHENICS</div>
+  <button class="secondary" onclick="logout()">LOGOUT</button>
+</nav>
+
+<div class="dashboard-title">
+  <h1>WELCOME, <span id="userDisplay">ATHLETE</span></h1>
+  <p>Choose your skill or open the advanced plan generator.</p>
+</div>
+
+<h2 class="section-title">SKILL TRAINING</h2>
+<div id="skillCards" class="cards"></div>
+
+<h2 class="section-title">ADVANCED 30-DAY PLAN GENERATOR</h2>
+
+<div class="generator">
+  <h2>BUILD YOUR PLAN</h2>
+
+  <div class="filters">
+
+    <div>
+      <label>Skill</label>
+      <select id="skillSelect"></select>
+    </div>
+
+    <div>
+      <label>Level</label>
+      <select id="level">
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Sessions / week</label>
+      <select id="frequency">
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Session length</label>
+      <select id="duration">
+        <option value="20">20 min</option>
+        <option value="30">30 min</option>
+        <option value="45">45 min</option>
+      </select>
+    </div>
+
+  </div>
+
+  <button onclick="generatePlan()">GENERATE 30-DAY PLAN</button>
+
+  <div id="planResult" class="empty">
+    Select your skill and generate a plan.
+  </div>
+</div>
+
+<h2 class="section-title">HOW THE PROGRESSION SYSTEM WORKS</h2>
+
+<div class="cards">
+
+  <div class="card">
+    <h3>1. Foundation</h3>
+    <p>
+      Build mobility, joint preparation, basic strength and body control
+      before harder variations.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>2. Progression</h3>
+    <p>
+      Increase difficulty gradually through easier variations, holds,
+      controlled reps and technique drills.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>3. Skill Practice</h3>
+    <p>
+      Practice the selected skill with short, high-quality sets and adequate recovery.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>4. Deload & Test</h3>
+    <p>
+      Recovery days reduce fatigue. The final days can be used for a controlled
+      technique check rather than forcing a maximum.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  Educational training planner. It is not a substitute for a qualified coach.
+</footer>
+</section>
+
+<section id="skillPage" class="page">
+
+<nav>
+  <div class="logo">VISHALTHENICS</div>
+  <button class="secondary" onclick="showPage('dashboardPage')">
+    ← DASHBOARD
+  </button>
+</nav>
+
+<div id="skillContent"></div>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
